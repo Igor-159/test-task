@@ -1,0 +1,36 @@
+# Appendix A. Common application properties
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# Part XIV. Appendix: Compendium of Configuration Properties
+# http://cloud.spring.io/spring-cloud-static/Edgware.RELEASE/multi/multi__appendix_compendium_of_configuration_properties.html
+# https://github.com/Netflix/Hystrix/wiki/Configuration
+# spring-configuration-metadata.json
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:file:~/test_db
+    username: admin
+    password: password
+    h2:
+      console:
+        enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create
+
+logging:
+  level:
+    ROOT: DEBUG
+
+server:
+  port: 8085
+  tomcat:
+    accesslog:
+      enabled: true
+      rotate: false
+      rename-on-rotate: false
+      pattern: '%t %h %v "%r" %s %b %D "%{Referer}i" "%{User-Agent}i"'
+      prefix: access
+      suffix: .log
+
